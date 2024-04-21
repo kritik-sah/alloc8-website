@@ -2,32 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.matelic-text {
+  @apply bg-[radial-gradient(circle,#fff,rgba(255,255,255,0.35))] bg-clip-text my-0 font-dmSans;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
+.card-overlay {
+  background: rgb(1, 1, 1);
   background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    0deg,
+    rgba(1, 1, 1, 0.797) 0%,
+    rgba(0, 212, 255, 0) 100%
+  );
+}
+html {
+  scroll-behavior: smooth;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+p::selection {
+  @apply bg-primary !text-dark;
 }
