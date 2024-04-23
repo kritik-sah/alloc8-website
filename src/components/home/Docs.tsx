@@ -12,23 +12,25 @@ const Docs = () => {
         offers you the most trustless and seamless way to create vaults & raise
         fund allocation.
       </p>
-      <div className="flex flex-wrap w-full items-center justify-center gap-6 my-6 px-4">
-        <div className="w-1/4 h-44 rounded-2xl p-4 bg-midnight border border-light/10 hover:border-light/30 transition-all ease-in-out duration-150 delay-75 space-y-4">
+      <div className="flex flex-wrap w-full items-center justify-center gap-6 my-6 lg:px-4">
+        <div className="w-full md:w-1/4 h-44 rounded-2xl p-4 bg-midnight border border-light/10 hover:border-light/30 transition-all ease-in-out duration-150 delay-75 space-y-4">
           <Icon
             name="FaHandHoldingDroplet"
             className="text-light/50 text-4xl"
           />
-          <h3 className="text-3xl matelic-text">Pro-Airdrop Farmers</h3>
+          <h3 className="text-xl lg:text-3xl matelic-text">
+            Pro-Airdrop Farmers
+          </h3>
         </div>
-        <div className="w-1/4 h-44 rounded-2xl p-4 bg-midnight border border-light/10 hover:border-light/30 transition-all ease-in-out duration-150 delay-75 space-y-4">
+        <div className="w-full md:w-1/4 h-44 rounded-2xl p-4 bg-midnight border border-light/10 hover:border-light/30 transition-all ease-in-out duration-150 delay-75 space-y-4">
           <Icon name="FaHandSparkles" className="text-light/50 text-4xl" />
-          <h3 className="text-3xl matelic-text">
+          <h3 className="text-xl lg:text-3xl matelic-text">
             Influencer Traders (Social Trading)
           </h3>
         </div>
-        <div className="w-1/4 h-44 rounded-2xl p-4 bg-midnight border border-light/10 hover:border-light/30 transition-all ease-in-out duration-150 delay-75 space-y-4">
+        <div className="w-full md:w-1/4 h-44 rounded-2xl p-4 bg-midnight border border-light/10 hover:border-light/30 transition-all ease-in-out duration-150 delay-75 space-y-4">
           <Icon name="FaFireFlameCurved" className="text-light/50 text-4xl" />
-          <h3 className="text-3xl matelic-text">
+          <h3 className="text-xl lg:text-3xl matelic-text">
             Yield Optimisation Strategies
           </h3>
         </div>

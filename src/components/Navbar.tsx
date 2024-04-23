@@ -1,12 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import MobMenu from "./MobMenu";
 import { Button } from "./ui/button";
 
 const Navbar = () => {
   return (
-    <header className="w-full p-6 max-w-screen-2xl mx-auto">
-      <div className="bg-midnight rounded-2xl flex items-center justify-between gap-4">
+    <header className="w-full p-4 lg:p-6 max-w-screen-2xl mx-auto">
+      <div className="relative bg-midnight rounded-2xl flex items-center justify-between gap-4">
         <div className="flex items-center">
           <Link href="/">
             <Image
@@ -17,7 +18,7 @@ const Navbar = () => {
             />
           </Link>
         </div>
-        <nav className="flex items-center gap-4 px-4 text-sm">
+        <nav className="hidden lg:flex items-center gap-4 px-4 text-sm">
           <a href="/" className="hover:text-primary">
             Join Waitlist
           </a>
@@ -39,6 +40,7 @@ const Navbar = () => {
             <Button>Contact us</Button>
           </a>
         </nav>
+        <MobMenu />
       </div>
     </header>
   );

@@ -46,7 +46,7 @@ const FeatureCard = ({
 }) => {
   return (
     <div className="group">
-      <div className="relative w-full h-72 rounded-2xl overflow-hidden">
+      <div className="relative w-full h-40 lg:h-72 rounded-2xl overflow-hidden">
         <div className="absolute w-full h-full hidden group-hover:block card-overlay transition-all duration-200 ease-in-out z-10"></div>
         <Image
           src={src}

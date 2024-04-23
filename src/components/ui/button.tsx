@@ -18,7 +18,7 @@ const buttonVariants = cva(
         secondary:
           "bg-ui-secondary text-ui-primary hover:bg-ui-secondary/80 dark:bg-slate-800 dark:text-slate-50 dark:hover:bg-slate-800/80",
         ghost:
-          "hover:bg-slate-100 hover:text-slate-900 dark:hover:bg-slate-800 dark:hover:text-slate-50",
+          "hover:bg-light/10 hover:text-slate-900 dark:hover:bg-slate-800 dark:hover:text-slate-50 flex items-center justify-center gap-1",
         link: "text-ui-highlight underline-offset-4 hover:underline dark:text-slate-50",
       },
       size: {

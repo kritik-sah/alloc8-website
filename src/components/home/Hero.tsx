@@ -4,28 +4,28 @@ import { Button } from "../ui/button";
 
 const Hero = () => {
   return (
-    <div className="w-full px-6 max-w-screen-2xl">
+    <div className="w-full px-6 max-w-screen-2xl mx-auto">
       <div className="flex items-center justify-center">
         <a
           href="https://calendly.com/ayush-xtra"
-          className="px-6 py-2 bg-midnight/80 hover:bg-midnight text-sm border border-light/10 rounded-full"
+          className="px-3 lg:px-6 py-2 bg-midnight/80 hover:bg-midnight text-xs lg:text-sm border border-light/10 rounded-full"
         >
           Alloc8 is now on Testnet —{" "}
           <span className="text-primary">Learn more -&gt;</span>
         </a>
       </div>
-      <div className="flex items-center justify-between gap-6 mt-12">
+      <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-6 mt-12">
         <div className="w-full">
-          <h1 className="text-6xl font-bold font-dmSans mb-4">
+          <h1 className="text-4xl md:text-6xl font-bold font-dmSans mb-4">
             <span className="text-primary">Boosted Point Farming</span> across
             DeFi
           </h1>
-          <p className="mb-8">
+          <p className="text-sm md:text-base mb-8">
             Maximize your points with non-custodial strategy vaults. Farm points
             & airdrops across multiple protocols effortlessly in one place.
             Powered by Safe.
           </p>
-          <div className="flex items-center justify-start gap-6">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-start gap-6">
             <Button size={"lg"}>Join Waitlist</Button>
             <div className="flex items-center justify-start gap-2">
               Powered by

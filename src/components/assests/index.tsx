@@ -5,6 +5,7 @@ import {
   FaAddressBook,
   FaArrowRightToBracket,
   FaArrowUpRightFromSquare,
+  FaBurger,
   FaCaretDown,
   FaEnvelopeOpen,
   FaFigma,
@@ -25,7 +26,11 @@ import {
   FaXTwitter,
   FaYoutube,
 } from "react-icons/fa6";
-import { HiOutlineCheckBadge, HiOutlinePlusCircle } from "react-icons/hi2";
+import {
+  HiBars3,
+  HiOutlineCheckBadge,
+  HiOutlinePlusCircle,
+} from "react-icons/hi2";
 
 interface DynamicIconProps extends React.SVGProps<SVGSVGElement> {
   name: string;
@@ -36,6 +41,7 @@ const iconComponents: Record<string, IconType> = {
   FaAddressBook,
   FaArrowRightToBracket,
   FaArrowUpRightFromSquare,
+  FaBurger,
   FaCaretDown,
   FaRegCopy,
   FaRegChessKnight,
@@ -58,6 +64,7 @@ const iconComponents: Record<string, IconType> = {
   FaTelegramPlane,
   HiOutlinePlusCircle,
   HiOutlineCheckBadge,
+  HiBars3,
 };
 
 const Icon: React.FC<DynamicIconProps> = ({ name, ...rest }) => {

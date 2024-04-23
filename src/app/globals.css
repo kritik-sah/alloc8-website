@@ -15,8 +15,10 @@
     rgba(0, 212, 255, 0) 100%
   );
 }
-html {
+html,
+body {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 p::selection {
