@@ -111,6 +111,7 @@ export const JoinWaitlistProvider: FC<JoinWaitlistProviderProps> = ({
     toast({
       title: "Joined Successfully!",
     });
+    closeModal();
     console.log("joined", address, twitter?.name, discord?.name, isFollowed);
   };
 
