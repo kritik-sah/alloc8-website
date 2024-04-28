@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import JoinWaitlist from "../Modals/JoinWaitlist";
 import { Button } from "../ui/button";
 
 const Hero = () => {
@@ -26,7 +27,10 @@ const Hero = () => {
             Powered by Safe.
           </p>
           <div className="flex flex-col md:flex-row md:items-center md:justify-start gap-6">
-            <Button size={"lg"}>Join Waitlist</Button>
+            <JoinWaitlist>
+              <Button size={"lg"}>Join Waitlist</Button>
+            </JoinWaitlist>
+
             <div className="flex items-center justify-start gap-2">
               Powered by
               <Image

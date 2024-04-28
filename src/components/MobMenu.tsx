@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import JoinWaitlist from "./Modals/JoinWaitlist";
 import Icon from "./assests";
 import { Button } from "./ui/button";
 
@@ -21,9 +22,9 @@ const MobMenu = () => {
         } w-full rounded-lg p-4 transition-all ease-in-out duration-150`}
       >
         <div className="flex flex-col gap-4">
-          <a href="/" className="hover:text-primary">
-            Join Waitlist
-          </a>
+          <JoinWaitlist>
+            <span className="hover:text-primary">Join Waitlist</span>
+          </JoinWaitlist>
           <a href="#features" className="hover:text-primary">
             Features
           </a>

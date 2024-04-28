@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import MobMenu from "./MobMenu";
+import JoinWaitlist from "./Modals/JoinWaitlist";
 import { Button } from "./ui/button";
 
 const Navbar = () => {
@@ -19,9 +20,9 @@ const Navbar = () => {
           </Link>
         </div>
         <nav className="hidden lg:flex items-center gap-4 px-4 text-sm">
-          <a href="/" className="hover:text-primary">
-            Join Waitlist
-          </a>
+          <JoinWaitlist>
+            <span className="hover:text-primary">Join Waitlist</span>
+          </JoinWaitlist>
           <a href="#features" className="hover:text-primary">
             Features
           </a>

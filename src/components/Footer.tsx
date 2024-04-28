@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import JoinWaitlist from "./Modals/JoinWaitlist";
 
 const Footer = () => {
   return (
@@ -22,9 +23,9 @@ const Footer = () => {
             />
           </div>
           <div className="text-xs md:text-base flex items-center justify-end gap-4 px-6">
-            <a href="/" className="hover:text-primary">
-              Join Waitlist
-            </a>
+            <JoinWaitlist>
+              <span className="hover:text-primary">Join Waitlist</span>
+            </JoinWaitlist>
             <a href="#features" className="hover:text-primary">
               Features
             </a>
