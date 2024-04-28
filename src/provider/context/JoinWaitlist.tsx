@@ -98,6 +98,7 @@ export const JoinWaitlistProvider: FC<JoinWaitlistProviderProps> = ({
     if (!address || !twitter?.name || !discord?.name || !isFollowed) {
       return;
     }
+    closeModal();
     const data = new FormData();
     data.append("entry.1838375823", address);
     data.append("entry.1967660097", twitter?.name);
@@ -111,7 +112,7 @@ export const JoinWaitlistProvider: FC<JoinWaitlistProviderProps> = ({
     toast({
       title: "Joined Successfully!",
     });
-    closeModal();
+
     console.log("joined", address, twitter?.name, discord?.name, isFollowed);
   };
 
