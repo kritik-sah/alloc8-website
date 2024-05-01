@@ -1,12 +1,11 @@
-"use client";
 import Icon from "@/components/assests";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import { shortenWalletAddress } from "@/lib/utils";
+import { supabase } from "@/utils/supabaseClient";
 import { useConnectModal } from "@rainbow-me/rainbowkit";
 import axios from "axios";
-import { signIn, useSession } from "next-auth/react";
 import React, {
   FC,
   createContext,
@@ -16,19 +15,16 @@ import React, {
 } from "react";
 import { useAccount } from "wagmi";
 
-// Define the modal context type
 interface JoinWaitlistContextType {
   isModalOpen: boolean;
   openModal: () => void;
   closeModal: () => void;
 }
 
-// Create the context
 const JoinWaitlistContext = createContext<JoinWaitlistContextType | undefined>(
   undefined
 );
 
-// Create a provider component
 interface JoinWaitlistProviderProps {
   children: React.ReactNode;
 }
@@ -37,83 +33,79 @@ export const JoinWaitlistProvider: FC<JoinWaitlistProviderProps> = ({
   children,
 }) => {
   const { toast } = useToast();
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const { openConnectModal } = useConnectModal();
-  const { data: session } = useSession();
   const { address } = useAccount();
+  const [session, setSession] = useState<any>(null);
   const [twitter, setTwitter] = useState<any>(null);
   const [discord, setDiscord] = useState<any>(null);
   const [isFollowed, setIsFollowed] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
 
   useEffect(() => {
-    // Get the URL query parameters
-    const params = new URLSearchParams(window.location.search);
-    // Check if the 'twitter' or Discord parameter is set to true
-    const isTwitter = params.get("twitter") === "true";
-    const isDiscord = params.get("discord") === "true";
-    if (isTwitter) {
-      sessionStorage.setItem(
-        "twitter",
-        JSON.stringify({
-          email: session?.user?.email,
-          name: session?.user?.name,
-        })
-      );
-    }
-    if (isDiscord) {
-      sessionStorage.setItem(
-        "discord",
-        JSON.stringify({
-          email: session?.user?.email,
-          name: session?.user?.name,
-        })
-      );
-    }
+    const fetchSession = async () => {
+      const { data, error } = await supabase.auth.getSession();
+      console.log("session:", data);
+      setSession(data);
 
-    // Retrieve the values from session storage
+      if (data?.session?.user.app_metadata.provider === "twitter") {
+        sessionStorage.setItem("twitter", JSON.stringify(data.session));
+      }
+      if (data?.session?.user.app_metadata.provider === "discord") {
+        sessionStorage.setItem("discord", JSON.stringify(data.session));
+      }
+    };
+    fetchSession();
+  }, []);
+
+  useEffect(() => {
     const twitterValue = sessionStorage.getItem("twitter");
     const discordValue = sessionStorage.getItem("discord");
 
-    console.log("twitterValue", twitterValue);
-
-    // Parse the JSON data if it exists
     setTwitter(twitterValue ? JSON.parse(twitterValue) : null);
     setDiscord(discordValue ? JSON.parse(discordValue) : null);
 
-    // Store the condition in session storage
     if (twitterValue || discordValue) {
       openModal();
     }
-  }, [session?.user?.name]);
+  }, [session]);
 
   const joinWaitlistHandler = async () => {
-    if (!address || !twitter?.name || !discord?.name || !isFollowed) {
+    if (!address || !twitter || !discord || !isFollowed) {
       return;
     }
     closeModal();
     const data = new FormData();
     data.append("entry.1838375823", address);
-    data.append("entry.1967660097", twitter?.name);
-    data.append("entry.1243333342", discord?.name);
+    data.append("entry.1967660097", twitter?.user?.user_metadata?.user_name);
+    data.append("entry.1243333342", discord?.user?.user_metadata?.full_name);
     data.append("entry.2089783402", `${isFollowed}`);
 
-    await axios.post(
-      "https://docs.google.com/forms/d/106Dz0t-qy81ZLN_jfPRIvXTqtg40P47C-kykDmdbAhQ/formResponse",
-      data
-    );
     toast({
       title: "Joined Successfully!",
     });
 
-    console.log("joined", address, twitter?.name, discord?.name, isFollowed);
+    axios
+      .post(
+        "https://docs.google.com/forms/d/106Dz0t-qy81ZLN_jfPRIvXTqtg40P47C-kykDmdbAhQ/formResponse",
+        data
+      )
+      .catch((error) => {
+        console.log("Error: ", error);
+      });
+  };
+
+  const signInWithTwitter = async () => {
+    await supabase.auth.signInWithOAuth({
+      provider: "twitter",
+    });
+  };
+  const signInWithDiscord = async () => {
+    await supabase.auth.signInWithOAuth({
+      provider: "discord",
+    });
   };
 
   return (
@@ -161,21 +153,17 @@ export const JoinWaitlistProvider: FC<JoinWaitlistProviderProps> = ({
               </div>
               <div className="flex w-full items-center justify-between">
                 <div className="flex items-center justify-start gap-2">
-                  {twitter?.name && <Badge>+100 pt</Badge>}
+                  {twitter?.user?.user_metadata?.user_name && (
+                    <Badge>+100 pt</Badge>
+                  )}
                   <p>Connect Twitter</p>
                 </div>
-
                 <Button
-                  onClick={() =>
-                    signIn("twitter", {
-                      callbackUrl: "/?twitter=true",
-                      redirect: false,
-                    })
-                  }
-                  disabled={twitter?.name}
+                  onClick={signInWithTwitter}
+                  disabled={twitter?.user?.user_metadata?.user_name}
                 >
-                  {twitter?.name ? (
-                    twitter?.name
+                  {twitter?.user?.user_metadata?.user_name ? (
+                    twitter?.user?.user_metadata?.user_name
                   ) : (
                     <span className="flex items-center justify-center gap-1 px-3">
                       Connect <Icon name="FaXTwitter" />
@@ -185,21 +173,17 @@ export const JoinWaitlistProvider: FC<JoinWaitlistProviderProps> = ({
               </div>
               <div className="flex w-full items-center justify-between">
                 <div className="flex items-center justify-start gap-2">
-                  {discord?.name && <Badge>+100 pt</Badge>}
-
+                  {discord?.user?.user_metadata?.full_name && (
+                    <Badge>+100 pt</Badge>
+                  )}
                   <p>Connect Discord</p>
                 </div>
                 <Button
-                  onClick={() =>
-                    signIn("discord", {
-                      callbackUrl: "/?discord=true",
-                      redirect: false,
-                    })
-                  }
-                  disabled={discord?.name}
+                  onClick={signInWithDiscord}
+                  disabled={discord?.user?.user_metadata?.full_name}
                 >
-                  {discord?.name ? (
-                    discord?.name
+                  {discord?.user?.user_metadata?.full_name ? (
+                    discord?.user?.user_metadata?.full_name
                   ) : (
                     <span className="flex items-center justify-center gap-1 px-3">
                       Connect <Icon name="FaDiscord" />
@@ -220,11 +204,10 @@ export const JoinWaitlistProvider: FC<JoinWaitlistProviderProps> = ({
                   <Button
                     onClick={() => setIsFollowed(true)}
                     disabled={isFollowed}
+                    className="flex items-center justify-center gap-1 px-4"
                   >
-                    <span className="flex items-center justify-center gap-1 px-4">
-                      {isFollowed ? "Followed" : "Follow"}{" "}
-                      <Icon name="FaTwitter" />
-                    </span>
+                    <span>{isFollowed ? "Followed" : "Follow"}</span>
+                    <Icon name="FaXTwitter" />
                   </Button>
                 </a>
               </div>
@@ -232,9 +215,7 @@ export const JoinWaitlistProvider: FC<JoinWaitlistProviderProps> = ({
                 size={"lg"}
                 className="w-full"
                 onClick={joinWaitlistHandler}
-                disabled={
-                  !address || !twitter?.name || !discord?.name || !isFollowed
-                }
+                disabled={!address || !twitter || !discord || !isFollowed}
               >
                 JOIN WAITLIST
               </Button>
@@ -246,7 +227,6 @@ export const JoinWaitlistProvider: FC<JoinWaitlistProviderProps> = ({
   );
 };
 
-// Custom hook to use the modal context
 export const useJoinWaitlistModal = () => {
   const context = useContext(JoinWaitlistContext);
   if (!context) {
@@ -256,4 +236,3 @@ export const useJoinWaitlistModal = () => {
   }
   return context;
 };
-//
