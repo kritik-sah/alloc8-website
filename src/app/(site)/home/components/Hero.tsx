@@ -35,11 +35,13 @@ const Hero = () => {
           </div>
         </div>
         <div className="relative rounded-2xl mt-10">
-          <img
-            src="/images/hero.svg"
-            alt="Hero Image"
-            className="w-full lg:w-[800px] max-w-screen-lg rounded-[inherit] object-contain shadow-lg"
-          />
+          <picture>
+            <img
+              src="/images/hero.svg"
+              alt="Hero Image"
+              className="w-full lg:w-[800px] max-w-screen-lg rounded-[inherit] object-contain shadow-lg"
+            />
+          </picture>
 
           <BorderBeam duration={12} delay={9} className="" />
         </div>
