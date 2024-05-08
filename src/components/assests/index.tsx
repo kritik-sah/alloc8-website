@@ -29,6 +29,8 @@ import {
 } from "react-icons/fa6";
 import {
   HiBars3,
+  HiChevronDown,
+  HiChevronUp,
   HiOutlineCheckBadge,
   HiOutlinePlusCircle,
 } from "react-icons/hi2";
@@ -67,6 +69,8 @@ const iconComponents: Record<string, IconType> = {
   HiOutlinePlusCircle,
   HiOutlineCheckBadge,
   HiBars3,
+  HiChevronDown,
+  HiChevronUp,
 };
 
 const Icon: React.FC<DynamicIconProps> = ({ name, ...rest }) => {

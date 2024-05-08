@@ -20,9 +20,6 @@ const Navbar = () => {
           </Link>
         </div>
         <nav className="hidden lg:flex items-center gap-4 px-4 text-sm">
-          <JoinWaitlist>
-            <span className="hover:text-primary">Join Waitlist</span>
-          </JoinWaitlist>
           <a href="#features" className="hover:text-primary">
             Features
           </a>
@@ -37,9 +34,17 @@ const Navbar = () => {
           >
             Twitter
           </a>
-          <a href="https://calendly.com/ayush-xtra" className="">
-            <Button>Contact us</Button>
+          <a
+            href="https://calendly.com/ayush-xtra"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-primary"
+          >
+            Contact us
           </a>
+          <JoinWaitlist>
+            <Button>Join Waitlist</Button>
+          </JoinWaitlist>
         </nav>
         <MobMenu />
       </div>
