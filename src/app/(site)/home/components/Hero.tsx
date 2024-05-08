@@ -21,17 +21,17 @@ const Hero = () => {
           </p>
 
           <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <Button className="relative rounded-full" size={"lg"}>
-              <Link
-                href="https://twitter.com/alloc8_xyz"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-1"
-              >
+            <Link
+              href="https://twitter.com/alloc8_xyz"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-1"
+            >
+              <Button className="relative rounded-full" size={"lg"}>
                 Follow on <Icon name="FaXTwitter" className="h-5 w-5 ml-2" />
-              </Link>
-              <BorderBeam size={250} duration={12} delay={9} />
-            </Button>
+                <BorderBeam size={250} duration={12} delay={9} />
+              </Button>
+            </Link>
           </div>
         </div>
         <div className="relative rounded-2xl mt-10">

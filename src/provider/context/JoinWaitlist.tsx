@@ -95,6 +95,9 @@ export const JoinWaitlistProvider: FC<JoinWaitlistProviderProps> = ({
       .catch((error) => {
         console.log("Error: ", error);
       });
+
+    sessionStorage.setItem("twitter", "");
+    sessionStorage.setItem("discord", "");
   };
 
   const signInWithTwitter = async () => {

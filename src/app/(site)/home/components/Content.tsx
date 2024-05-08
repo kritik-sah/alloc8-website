@@ -59,7 +59,7 @@ const Content = () => {
                 onClick={setContent.bind(null, item.id)}
                 className="flex items-center justify-between gap-4 cursor-pointer"
               >
-                <h3 className="text-3xl font-dmSans matelic-text font-medium">
+                <h3 className="text-2xl md:text-3xl font-dmSans matelic-text font-medium">
                   {item.title}
                 </h3>
                 <Icon
@@ -72,14 +72,14 @@ const Content = () => {
                   content === item.id
                     ? "block animate-accordion-down"
                     : "hidden animate-accordion-up"
-                } text-light/80 transition-all duration-100 ease-linear`}
+                } text-light/60 transition-all duration-100 ease-linear`}
               >
                 {item.description}
               </p>
             </div>
           ))}
         </div>
-        <div className="w-full lg:flex-1 bg-dark h-full rounded-2xl h-96 overflow-hidden">
+        <div className="w-full lg:flex-1 bg-dark rounded-2xl h-96 overflow-hidden">
           {data[content].sideComponent}
         </div>
       </div>
@@ -139,7 +139,7 @@ const Notification = ({ name, description, icon, color, time }: Item) => {
   return (
     <figure
       className={cn(
-        "relative mx-auto min-h-fit w-full transform cursor-pointer overflow-hidden rounded-2xl p-4",
+        "relative mx-auto min-h-fit w-full transform cursor-pointer overflow-hidden rounded-2xl p-2 md:p-4",
         // animation styles
         "transition-all duration-200 ease-in-out hover:scale-[103%]",
         // light styles
@@ -174,7 +174,7 @@ const Notification = ({ name, description, icon, color, time }: Item) => {
 
 export function AnimatedListDemo() {
   return (
-    <div className="relative w-full flex flex-col overflow-hidden bg-background p-6 shadow-lg">
+    <div className="relative w-full flex flex-col overflow-hidden bg-background p-3 md:p-6 shadow-lg">
       <AnimatedList delay={3000}>
         {notifications.map((item, idx) => (
           <Notification {...item} key={idx} />
@@ -219,7 +219,7 @@ export function AnimatedBeamDemo() {
   return (
     <div className="flex items-center justify-center flex-shrink-0 flex-grow h-full">
       <div
-        className="relative flex w-full items-center justify-center overflow-hidden rounded-lg bg-background p-10 md:shadow-xl"
+        className="relative flex w-full items-center justify-center overflow-hidden rounded-lg bg-background p-3 md:p-10 md:shadow-xl"
         ref={containerRef}
       >
         <div className="flex h-full w-full flex-row items-stretch justify-between gap-10">
