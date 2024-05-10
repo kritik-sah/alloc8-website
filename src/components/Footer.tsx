@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import JoinWaitlist from "./Modals/JoinWaitlist";
+import Icon from "./assests";
 
 const Footer = () => {
   return (
@@ -23,12 +24,10 @@ const Footer = () => {
             />
           </div>
           <div className="text-xs md:text-base flex items-center justify-end gap-4 px-6">
-            <JoinWaitlist>
+            {/* <JoinWaitlist>
               <span className="hover:text-primary">Join Waitlist</span>
-            </JoinWaitlist>
-            <a href="#features" className="hover:text-primary">
-              Features
-            </a>
+            </JoinWaitlist> */}
+
             <a href="#Experience" className="hover:text-primary">
               Docs
             </a>
@@ -38,24 +37,32 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="hover:text-primary"
             >
-              Twitter
+              <Icon name="FaXTwitter" className="h-5 w-5" />
             </a>
             <a
+              href="https://github.com/devsxtra"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-primary"
+            >
+              <Icon name="FaGithub" className="h-5 w-5" />
+            </a>
+            {/* <a
               href="https://calendly.com/ayush-xtra"
               className="hover:text-primary"
             >
               Contact us
-            </a>
+            </a> */}
           </div>
         </div>
         <div className="border-t border-light/30 p-4 lg:p-6">
-          <a
+          {/* <a
             href="https://calendly.com/ayush-xtra"
             className="px-4 lg:px-6 py-2 bg-midnight/80 hover:bg-midnight text-xs lg:text-sm border border-light/10 rounded-full"
           >
             Alloc8 is now on Testnet —{" "}
             <span className="text-primary">Learn more -&gt;</span>
-          </a>
+          </a> */}
         </div>
       </div>
     </div>

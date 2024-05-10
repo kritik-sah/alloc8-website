@@ -23,9 +23,7 @@ const Navbar = () => {
           <a href="#features" className="hover:text-primary">
             Features
           </a>
-          <a href="#Experience" className="hover:text-primary">
-            Docs
-          </a>
+
           <a
             href="https://twitter.com/alloc8_xyz"
             target="_blank"
@@ -34,14 +32,7 @@ const Navbar = () => {
           >
             Twitter
           </a>
-          <a
-            href="https://calendly.com/ayush-xtra"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-primary"
-          >
-            Contact us
-          </a>
+
           <JoinWaitlist>
             <Button>Join Waitlist</Button>
           </JoinWaitlist>
