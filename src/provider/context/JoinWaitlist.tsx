@@ -105,7 +105,7 @@ export const JoinWaitlistProvider: FC<JoinWaitlistProviderProps> = ({
     await supabase.auth.signInWithOAuth({
       provider: "twitter",
       options: {
-        redirectTo: "?waitlist=true",
+        redirectTo: "/?waitlist=true",
       },
     });
   };
@@ -113,7 +113,7 @@ export const JoinWaitlistProvider: FC<JoinWaitlistProviderProps> = ({
     await supabase.auth.signInWithOAuth({
       provider: "discord",
       options: {
-        redirectTo: "?waitlist=true",
+        redirectTo: "/?waitlist=true",
       },
     });
   };
