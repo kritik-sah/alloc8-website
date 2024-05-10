@@ -35,7 +35,7 @@ const data = [
   },
   {
     id: 2,
-    title: "1-click Ape",
+    title: "1-Click Ape",
     description:
       "Multicall transactions & protocol bundling to simplify the end-goal",
     sideComponent: <AnimatedBeamDemo />,
@@ -45,7 +45,7 @@ const data = [
 const Content = () => {
   const [content, setContent] = useState(0);
   return (
-    <section className="p-6 space-y-2 max-w-screen-2xl m-auto">
+    <section className="px-6 my-10 lg:my-16 space-y-2 max-w-screen-2xl m-auto">
       <div
         className={`flex flex-col-reverse lg:flex-row p-1 items-center justify-between bg-midnight  rounded-3xl gap-4 `}
       >
@@ -175,7 +175,7 @@ const Notification = ({ name, description, icon, color, time }: Item) => {
 export function AnimatedListDemo() {
   return (
     <div className="relative w-full flex flex-col overflow-hidden bg-background p-3 md:p-6 shadow-lg">
-      <AnimatedList delay={3000}>
+      <AnimatedList>
         {notifications.map((item, idx) => (
           <Notification {...item} key={idx} />
         ))}
@@ -217,26 +217,67 @@ export function AnimatedBeamDemo() {
   const div7Ref = useRef<HTMLDivElement>(null);
 
   return (
-    <div className="flex items-center justify-center flex-shrink-0 flex-grow h-full">
+    <div className="max-w-screen-sm mx-auto flex items-center justify-center flex-shrink-0 flex-grow h-full">
       <div
         className="relative flex w-full items-center justify-center overflow-hidden rounded-lg bg-background p-3 md:p-10 md:shadow-xl"
         ref={containerRef}
       >
         <div className="flex h-full w-full flex-row items-stretch justify-between gap-10">
           <div className="flex flex-col justify-center">
-            <Circle ref={div7Ref}>1</Circle>
+            <Circle ref={div7Ref}>
+              <Icon
+                name="HiUser"
+                className="h-6 w-6 text-light/80 hover:text-light/90"
+              />
+            </Circle>
           </div>
           <div className="flex flex-col justify-center">
-            <Circle ref={div6Ref} className="h-16 w-16">
-              2
+            <Circle ref={div6Ref} className="h-16 w-16 overflow-hidden">
+              <img
+                src="/images/alloc8.png"
+                alt="alloc8"
+                className="h-20 w-20 max-w-none"
+              />
             </Circle>
           </div>
           <div className="flex flex-col justify-center gap-2">
-            <Circle ref={div1Ref}>3</Circle>
-            <Circle ref={div2Ref}>4</Circle>
-            <Circle ref={div3Ref}>5</Circle>
-            <Circle ref={div4Ref}>6</Circle>
-            <Circle ref={div5Ref}>7</Circle>
+            <Circle ref={div1Ref}>
+              <img
+                src="/images/safe.svg"
+                alt="alloc8"
+                className="h-8 w-8 max-w-none"
+              />
+            </Circle>
+            <Circle ref={div2Ref}>
+              <img
+                src="/images/mode.svg"
+                alt="alloc8"
+                className="h-8 w-8 max-w-none"
+              />
+            </Circle>
+            <Circle ref={div3Ref}>
+              <img
+                src="/images/etherfi.png"
+                alt="alloc8"
+                className="h-8 w-8 max-w-none"
+              />
+            </Circle>
+            <Circle ref={div4Ref}>
+              <img
+                src="/images/blast.svg"
+                alt="alloc8"
+                className="h-8 w-8 max-w-none"
+              />
+            </Circle>
+            <Circle ref={div5Ref}>
+              <div className="h-8 w-8 flex items-center justify-center aspect-square bg-light/80 rounded-full p-1">
+                <img
+                  src="/images/eigenlayer.png"
+                  alt="alloc8"
+                  className="h-5 w-5"
+                />
+              </div>
+            </Circle>
           </div>
         </div>
 
@@ -245,37 +286,37 @@ export function AnimatedBeamDemo() {
           containerRef={containerRef}
           fromRef={div1Ref}
           toRef={div6Ref}
-          duration={3}
+          duration={6}
         />
         <AnimatedBeam
           containerRef={containerRef}
           fromRef={div2Ref}
           toRef={div6Ref}
-          duration={3}
+          duration={6}
         />
         <AnimatedBeam
           containerRef={containerRef}
           fromRef={div3Ref}
           toRef={div6Ref}
-          duration={3}
+          duration={6}
         />
         <AnimatedBeam
           containerRef={containerRef}
           fromRef={div4Ref}
           toRef={div6Ref}
-          duration={3}
+          duration={6}
         />
         <AnimatedBeam
           containerRef={containerRef}
           fromRef={div5Ref}
           toRef={div6Ref}
-          duration={3}
+          duration={6}
         />
         <AnimatedBeam
           containerRef={containerRef}
           fromRef={div6Ref}
           toRef={div7Ref}
-          duration={3}
+          duration={6}
         />
       </div>
     </div>

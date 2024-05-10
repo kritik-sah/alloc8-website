@@ -33,6 +33,7 @@ import {
   HiChevronUp,
   HiOutlineCheckBadge,
   HiOutlinePlusCircle,
+  HiUser,
 } from "react-icons/hi2";
 
 interface DynamicIconProps extends React.SVGProps<SVGSVGElement> {
@@ -71,6 +72,7 @@ const iconComponents: Record<string, IconType> = {
   HiBars3,
   HiChevronDown,
   HiChevronUp,
+  HiUser,
 };
 
 const Icon: React.FC<DynamicIconProps> = ({ name, ...rest }) => {

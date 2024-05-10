@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import colors from "tailwindcss/colors";
 
 const config = {
   darkMode: ["class"],
@@ -15,6 +16,7 @@ const config = {
       dmSans: "var(--font-dmSans)",
     },
     colors: {
+      ...colors,
       dark: "#010101",
       light: "#fff",
       primary: "#C4FF60",
