@@ -7,6 +7,7 @@ import { shortenWalletAddress } from "@/lib/utils";
 import { supabase } from "@/utils/supabaseClient";
 import { useConnectModal } from "@rainbow-me/rainbowkit";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 import React, {
   FC,
   createContext,
@@ -33,7 +34,6 @@ interface JoinWaitlistProviderProps {
 export const JoinWaitlistProvider: FC<JoinWaitlistProviderProps> = ({
   children,
 }) => {
-  const params = new URLSearchParams(window.location.search);
   const { toast } = useToast();
   const { openConnectModal } = useConnectModal();
   const { address } = useAccount();
@@ -43,8 +43,14 @@ export const JoinWaitlistProvider: FC<JoinWaitlistProviderProps> = ({
   const [isFollowed, setIsFollowed] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
+  const openModal = () => {
+    sessionStorage.setItem("waitlist", JSON.stringify(true));
+    setIsModalOpen(true);
+  };
+  const closeModal = () => {
+    sessionStorage.setItem("waitlist", JSON.stringify(false));
+    setIsModalOpen(false);
+  };
 
   useEffect(() => {
     const fetchSession = async () => {
@@ -64,11 +70,12 @@ export const JoinWaitlistProvider: FC<JoinWaitlistProviderProps> = ({
   useEffect(() => {
     const twitterValue = sessionStorage.getItem("twitter");
     const discordValue = sessionStorage.getItem("discord");
+    const isWaitlist = sessionStorage.getItem("waitlist") === "true";
 
     setTwitter(twitterValue ? JSON.parse(twitterValue) : null);
     setDiscord(discordValue ? JSON.parse(discordValue) : null);
 
-    if (twitterValue || (discordValue && params.get("waitlist"))) {
+    if ((twitterValue || discordValue) && isWaitlist) {
       openModal();
     }
   }, [session]);
@@ -104,17 +111,11 @@ export const JoinWaitlistProvider: FC<JoinWaitlistProviderProps> = ({
   const signInWithTwitter = async () => {
     await supabase.auth.signInWithOAuth({
       provider: "twitter",
-      options: {
-        redirectTo: "/?waitlist=true",
-      },
     });
   };
   const signInWithDiscord = async () => {
     await supabase.auth.signInWithOAuth({
       provider: "discord",
-      options: {
-        redirectTo: "/?waitlist=true",
-      },
     });
   };
 
