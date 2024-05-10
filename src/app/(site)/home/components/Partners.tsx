@@ -10,7 +10,7 @@ const Partners = () => {
       <h2 className="text-center text-5xl font-dmSans matelic-text font-medium">
         Trusted & Backed By
       </h2>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-10 lg:mt-16">
+      <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 mt-10 lg:mt-16">
         <PartnersLogo src="/images/alphawave.svg" alt="Alpha Wave Global" />
         <PartnersLogo src="/images/polygon.png" alt="Polygon Ventures" />
         <PartnersLogo src="/images/longHash.png" alt="LonghashX" />
@@ -18,7 +18,7 @@ const Partners = () => {
       </div>
       <div
         className={
-          "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-2 md:gap-4 mt-10 lg:mt-16 md:px-4"
+          "flex flex-wrap items-center justify-center gap-4 md:gap-6 mt-10 lg:mt-16 md:px-4"
         }
       >
         <AnglesLogo
@@ -64,21 +64,23 @@ const AnglesLogo = ({
   title: string;
 }) => {
   return (
-    <div className="flex items-center justify-center md:justify-start gap-2 md:gap-3 border-2 border-primary rounded-full p-1">
-      <div className="relative w-20 h-20 sm:w-10 sm:h-10 md:w-20 md:h-20 hidden sm:block rounded-full bg-yellow-400 overflow-hidden">
-        <Image
-          src={src}
-          fill={true}
-          className="object-cover"
-          loading="lazy"
-          alt={alt}
-        />
-      </div>
-      <div className="flex flex-col gap-1 items-center md:items-start justify-center">
-        <h3 className="text-primary text-sm md:text-lg xl:text-xl font-medium">
-          {name}
-        </h3>
-        <p className="text-xs md:text-sm xl:text-base">{title}</p>
+    <div className="flex items-center justify-center">
+      <div className="min-w-[200px] flex items-center justify-start md:justify-start gap-2 md:gap-3 border-2 border-primary rounded-full p-1">
+        <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-full bg-yellow-400 overflow-hidden">
+          <Image
+            src={src}
+            fill={true}
+            className="object-cover"
+            loading="lazy"
+            alt={alt}
+          />
+        </div>
+        <div className="flex flex-col items-start justify-center pr-4">
+          <h3 className="text-primary text-sm lg:text-base font-medium">
+            {name}
+          </h3>
+          <p className="text-xs md:text-sm">{title}</p>
+        </div>
       </div>
     </div>
   );
@@ -86,7 +88,7 @@ const AnglesLogo = ({
 const PartnersLogo = ({ src, alt }: { src: string; alt: string }) => {
   return (
     <div className="flex flex-col items-center justify-center space-y-4">
-      <div className="relative w-20 h-10 md:w-32 md:h-16 lg:w-48 lg:h-16">
+      <div className="relative w-32 h-16 lg:w-48 lg:h-16">
         <Image
           src={src}
           fill={true}

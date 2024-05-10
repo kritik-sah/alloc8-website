@@ -1,3 +1,4 @@
+"use client";
 import Icon from "@/components/assests";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -32,6 +33,7 @@ interface JoinWaitlistProviderProps {
 export const JoinWaitlistProvider: FC<JoinWaitlistProviderProps> = ({
   children,
 }) => {
+  const params = new URLSearchParams(window.location.search);
   const { toast } = useToast();
   const { openConnectModal } = useConnectModal();
   const { address } = useAccount();
@@ -47,7 +49,6 @@ export const JoinWaitlistProvider: FC<JoinWaitlistProviderProps> = ({
   useEffect(() => {
     const fetchSession = async () => {
       const { data, error } = await supabase.auth.getSession();
-      console.log("session:", data);
       setSession(data);
 
       if (data?.session?.user.app_metadata.provider === "twitter") {
@@ -67,7 +68,7 @@ export const JoinWaitlistProvider: FC<JoinWaitlistProviderProps> = ({
     setTwitter(twitterValue ? JSON.parse(twitterValue) : null);
     setDiscord(discordValue ? JSON.parse(discordValue) : null);
 
-    if (twitterValue || discordValue) {
+    if (twitterValue || (discordValue && params.get("waitlist"))) {
       openModal();
     }
   }, [session]);
@@ -103,11 +104,17 @@ export const JoinWaitlistProvider: FC<JoinWaitlistProviderProps> = ({
   const signInWithTwitter = async () => {
     await supabase.auth.signInWithOAuth({
       provider: "twitter",
+      options: {
+        redirectTo: "?waitlist=true",
+      },
     });
   };
   const signInWithDiscord = async () => {
     await supabase.auth.signInWithOAuth({
       provider: "discord",
+      options: {
+        redirectTo: "?waitlist=true",
+      },
     });
   };
 
