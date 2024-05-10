@@ -21,7 +21,7 @@ const Roadmap = () => {
       {
         breakpoint: 1536,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 2,
           slidesToScroll: 1,
           centerPadding: "150px",
         },
@@ -69,7 +69,7 @@ const Roadmap = () => {
     ],
   };
   return (
-    <div className="my-10 lg:my-16">
+    <div className="my-10 lg:my-16 max-w-screen-2xl mx-auto">
       <h2 className="text-center text-5xl font-dmSans matelic-text font-medium">
         Alloc8 Roadmap
       </h2>
