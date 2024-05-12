@@ -23,21 +23,21 @@ const data = [
     id: 0,
     title: "Composable Leverage",
     description:
-      "Securely increase your exposure to boost your points farming by 10X",
+      "Securely increase your exposure to boost your points farming by 5X",
     sideComponent: <ComposableLeverage />,
   },
   {
     id: 1,
-    title: "Automated Strategies",
+    title: "Smart Accounts",
     description:
-      "Set smart triggers to automate Buy, Sell, and other fancy strategies to maximize the output",
+      "Setup automation like Compounding, Rebalancing, Stop loss, 1-click transactions, Health level calibration etc",
     sideComponent: <AnimatedListDemo />,
   },
   {
     id: 2,
     title: "1-Click Ape",
     description:
-      "Multicall transactions & protocol bundling to simplify the end-goal",
+      "Intent-based bundling of cross-chain, multiple DeFi actions into a single transaction with ease",
     sideComponent: <AnimatedBeamDemo />,
   },
 ];
