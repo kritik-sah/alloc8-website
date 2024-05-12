@@ -6,12 +6,12 @@ import React from "react";
 const CallToAction = () => {
   return (
     <section className="my-10 lg:my-16 max-w-screen-2xl mx-auto">
-      <div className="mx-auto max-w-xl text-center">
-        <h2 className="text-center text-5xl font-dmSans matelic-text font-medium">
+      <div className="mx-auto max-w-xs text-center">
+        <h2 className="text-center text-2xl lg:text-5xl font-dmSans matelic-text font-medium">
           Join Us
         </h2>
 
-        <p className="mt-4 text-center text-light/90 ">
+        <p className="mt-4 text-center text-light/90 px-4 ">
           A revolutionary way to supercharge your points farming DeFi.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-4">

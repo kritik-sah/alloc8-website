@@ -9,12 +9,13 @@ const Navbar = () => {
   return (
     <header className="w-full p-4 lg:p-6 max-w-screen-2xl mx-auto">
       <div className="relative bg-midnight rounded-2xl flex items-center justify-between gap-4">
-        <div className="flex items-center">
+        <div className="flex items-center px-4">
           <Link href="/">
             <Image
-              src="/images/alloc8-logo.png"
-              width={110}
-              height={73}
+              src="/images/main green transparent-01.svg"
+              width={80}
+              height={50}
+              className="object-contain"
               alt="Alloc8 Logo"
             />
           </Link>

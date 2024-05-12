@@ -241,9 +241,9 @@ export function AnimatedBeamDemo() {
           <div className="flex flex-col justify-center">
             <Circle ref={div6Ref} className="h-16 w-16 overflow-hidden">
               <img
-                src="/images/alloc8.png"
+                src="/images/only 8 green transparent.svg"
                 alt="alloc8"
-                className="h-20 w-20 max-w-none"
+                className="h-12 w-12 max-w-none"
               />
             </Circle>
           </div>

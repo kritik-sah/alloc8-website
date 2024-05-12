@@ -7,7 +7,7 @@ import React from "react";
 const Investors = () => {
   return (
     <div className="py-10 lg:py-16 px-4 lg:px-0 max-w-screen-xl mx-auto">
-      <h2 className="text-center text-5xl font-dmSans matelic-text font-medium">
+      <h2 className="text-center text-2xl lg:text-5xl font-dmSans matelic-text font-medium">
         Trusted & Backed By
       </h2>
       <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 mt-10 lg:mt-16">
