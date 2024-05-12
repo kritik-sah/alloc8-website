@@ -45,16 +45,23 @@ const data = [
 const Content = () => {
   const [content, setContent] = useState(0);
   return (
-    <section className="px-6 my-10 lg:my-16 space-y-2 max-w-screen-2xl m-auto">
+    <section className="px-2 md:px-4 my-10 lg:my-16 space-y-2 max-w-screen-2xl m-auto">
       <div
         className={`flex flex-col-reverse lg:flex-row p-1 items-center justify-between bg-midnight  rounded-3xl gap-4 `}
       >
-        <div className="w-full lg:w-1/3 space-y-6 p-6">
+        <div className="w-full lg:w-1/3 space-y-6 p-2 md:p-6">
           {data.map((item) => (
             <div
               key={item.id}
               className="space-y-4 border-b border-light/10 pb-4"
             >
+              <div
+                className={`w-full ${
+                  content === item.id ? "block" : "hidden"
+                } lg:hidden lg:flex-1 bg-dark rounded-2xl h-96 overflow-hidden`}
+              >
+                {data[content].sideComponent}
+              </div>
               <div
                 onClick={setContent.bind(null, item.id)}
                 className="flex items-center justify-between gap-4 cursor-pointer"
@@ -79,7 +86,7 @@ const Content = () => {
             </div>
           ))}
         </div>
-        <div className="w-full lg:flex-1 bg-dark rounded-2xl h-96 overflow-hidden">
+        <div className="w-full hidden lg:block lg:flex-1 bg-dark rounded-2xl h-96 overflow-hidden">
           {data[content].sideComponent}
         </div>
       </div>
