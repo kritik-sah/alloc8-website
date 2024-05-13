@@ -141,6 +141,12 @@ const Roadmap = () => {
                 }
                 description="Fee sharing mechanism"
               />
+            </div>
+          </div>
+          <div className="p-2 sm:p-4 md:pr-8 lg:pr-10 ">
+            <h3 className="text-xl font-semibold">Q4/2024-Q1/2025</h3>
+            <p className="text-sm text-primary/80 mt-1">1-Click with Intents</p>
+            <div className="min-h-[340px] bg-gradient-to-r from-primary/20 via-midnight/60 to-midnight/60 border border-light/30 rounded-2xl space-y-1 p-4 space-y-6 my-6">
               <RoadmapItem
                 icon={
                   <Icon
@@ -150,12 +156,6 @@ const Roadmap = () => {
                 }
                 description="EVM chains expansion"
               />
-            </div>
-          </div>
-          <div className="p-2 sm:p-4 md:pr-8 lg:pr-10 ">
-            <h3 className="text-xl font-semibold">Q4/2024-Q1/2025</h3>
-            <p className="text-sm text-primary/80 mt-1">1-Click with Intents</p>
-            <div className="min-h-[340px] bg-gradient-to-r from-primary/20 via-midnight/60 to-midnight/60 border border-light/30 rounded-2xl space-y-1 p-4 space-y-6 my-6">
               <RoadmapItem
                 icon={
                   <Icon
@@ -172,7 +172,7 @@ const Roadmap = () => {
                     className="h-5 w-5 flex-shrink-0"
                   />
                 }
-                description="Introduce the “1-click Ape” mechanism"
+                description="Introduce the “1-Click Ape” mechanism"
               />
               <RoadmapItem
                 icon={
@@ -183,15 +183,7 @@ const Roadmap = () => {
                 }
                 description="Yield Maximising vaults (Looping, Interest Arbitrage)"
               />
-              <RoadmapItem
-                icon={
-                  <Icon
-                    name="HiOutlineBadgeCheck"
-                    className="h-5 w-5 flex-shrink-0"
-                  />
-                }
-                description="OTC marketplace to Trade Points & Yield"
-              />
+
               <RoadmapItem
                 icon={
                   <Icon
