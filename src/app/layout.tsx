@@ -7,9 +7,7 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const dmSans = DM_Sans({ subsets: ["latin"], variable: "--font-dmSans" });
 
 export const metadata: Metadata = {
-  title: "Alloc8 - On-Chain Asset Management",
-  description:
-    "Whether you're a Pro-manager, Degen, or a 1000x spotter, Alloc8 offers you the most trustless and seamless way to create vaults & raise fund allocation.",
+  title: "Alloc8 - Maximise Points & Yield farming",
 };
 
 export default function RootLayout({

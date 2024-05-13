@@ -17,9 +17,10 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 py-4">
           <div className="flex items-center">
             <Image
-              src="/images/alloc8-logo.png"
-              width={110}
-              height={73}
+              src="/images/main green transparent-01.svg"
+              width={80}
+              height={50}
+              className="object-contain"
               alt="Alloc8 Logo"
             />
           </div>

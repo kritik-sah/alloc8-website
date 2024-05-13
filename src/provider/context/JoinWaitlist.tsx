@@ -134,11 +134,17 @@ export const JoinWaitlistProvider: FC<JoinWaitlistProviderProps> = ({
             isModalOpen ? "block" : "hidden"
           } w-full max-w-screen-sm absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 px-3`}
         >
-          <div className="z-50 flex flex-col items-center space-y-6 bg-midnight rounded-2xl px-4 border border-light/10">
+          <div className="relative z-50 flex flex-col items-center space-y-6 bg-midnight rounded-2xl px-4 border border-light/10">
             <div className="px-3 lg:px-6 py-1 bg-primary text-dark font-semibold font-dmSans border border-light/10 rounded-b-2xl">
-              400 pts for joining
+              Let&apos;s HyperFarm
             </div>
-            <div className="flex w-full items-center justify-between">
+            <button
+              className="bg-light/5 text-light/80 hover:text-light/60 absolute -top-2 right-3"
+              onClick={closeModal}
+            >
+              <Icon name="FaXmark" className="h-5 w-5" />
+            </button>
+            {/* <div className="flex w-full items-center justify-between">
               <div className="">
                 <h3 className="text-2xl font-dmSans font-semibold">
                   Join Alloc8
@@ -151,7 +157,7 @@ export const JoinWaitlistProvider: FC<JoinWaitlistProviderProps> = ({
               >
                 Close
               </Button>
-            </div>
+            </div> */}
             <div className="w-full flex flex-col items-center space-y-6 py-4">
               <div className="flex w-full items-center justify-between">
                 <div className="flex items-center justify-start gap-2">
@@ -223,8 +229,7 @@ export const JoinWaitlistProvider: FC<JoinWaitlistProviderProps> = ({
                 </a>
               </div>
               <Button
-                size={"lg"}
-                className="w-full"
+                className="w-full !py-6"
                 onClick={joinWaitlistHandler}
                 disabled={!address || !twitter || !discord || !isFollowed}
               >

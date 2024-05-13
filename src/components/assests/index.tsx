@@ -25,6 +25,7 @@ import {
   FaTelegram,
   FaUser,
   FaXTwitter,
+  FaXmark,
   FaYoutube,
 } from "react-icons/fa6";
 import { HiOutlineBadgeCheck } from "react-icons/hi";
@@ -79,6 +80,7 @@ const iconComponents: Record<string, IconType> = {
   HiOutlineBadgeCheck,
   HiCheckBadge,
   HiSparkles,
+  FaXmark,
 };
 
 const Icon: React.FC<DynamicIconProps> = ({ name, ...rest }) => {

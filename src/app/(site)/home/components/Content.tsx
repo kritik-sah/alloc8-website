@@ -102,40 +102,31 @@ import Image from "next/image";
 
 interface Item {
   name: string;
-  description: string;
+  description?: string;
   icon: string;
   color: string;
-  time: string;
+  time?: string;
 }
 
 let notifications = [
   {
-    name: "Payment received",
-    description: "Magic UI",
-    time: "15m ago",
-
+    name: "Health factor updated to 1.420",
     icon: "💸",
     color: "#00C9A7",
   },
   {
-    name: "User signed up",
-    description: "Magic UI",
-    time: "10m ago",
-    icon: "👤",
-    color: "#FFB800",
+    name: "Rebalancing BeraBooster2.0",
+    icon: "⚖️",
+    color: "#eb0000",
   },
   {
-    name: "New message",
-    description: "Magic UI",
-    time: "5m ago",
-    icon: "💬",
+    name: "Take profit. Position Closed 💰",
+    icon: "💰",
     color: "#FF3D71",
   },
   {
-    name: "New event",
-    description: "Magic UI",
-    time: "2m ago",
-    icon: "🗞️",
+    name: "Auto-claim multiply success",
+    icon: "🪙",
     color: "#1E86FF",
   },
 ];
@@ -170,9 +161,11 @@ const Notification = ({ name, description, icon, color, time }: Item) => {
             <span className="mx-1">·</span>
             <span className="text-xs text-gray-500">{time}</span>
           </figcaption>
-          <p className="text-sm font-normal dark:text-white/60">
-            {description}
-          </p>
+          {description && (
+            <p className="text-sm font-normal dark:text-white/60">
+              {description}
+            </p>
+          )}
         </div>
       </div>
     </figure>
