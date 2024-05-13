@@ -91,19 +91,41 @@ export const JoinWaitlistProvider: FC<JoinWaitlistProviderProps> = ({
     data.append("entry.1243333342", discord?.user?.user_metadata?.full_name);
     data.append("entry.2089783402", `${isFollowed}`);
 
+    const { data: waitlistData, error } = await supabase
+      .from("waitlist")
+      .insert([
+        {
+          address,
+          twitter: twitter?.user?.user_metadata?.user_name,
+          discord: discord?.user?.user_metadata?.full_name,
+          is_followed: isFollowed,
+          user: twitter?.user?.id,
+        },
+      ])
+      .select();
+
+    if (error) {
+      console.log(error);
+
+      toast({
+        title: error.code === "23505" ? "Already joined" : error.message,
+        variant: "destructive",
+      });
+      return;
+    }
     toast({
       title: "Joined Successfully!",
     });
-
-    axios
-      .post(
+    try {
+      await axios.post(
         "https://docs.google.com/forms/d/106Dz0t-qy81ZLN_jfPRIvXTqtg40P47C-kykDmdbAhQ/formResponse",
         data
-      )
-      .catch((error) => {
-        console.log("Error: ", error);
-      });
+      );
+    } catch (error) {
+      console.log("Error: ", error);
+    }
 
+    await supabase.auth.signOut();
     sessionStorage.setItem("twitter", "");
     sessionStorage.setItem("discord", "");
   };
