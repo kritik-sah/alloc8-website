@@ -11,8 +11,8 @@ const CallToAction = () => {
           Join Us
         </h2>
 
-        <p className="mt-4 text-center text-light/90 px-4 ">
-          A revolutionary way to supercharge your points farming DeFi.
+        <p className="mt-4 text-lg text-center text-light/90 px-4 ">
+          AI accounts to maximise points & yields. Powered by Safe.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-4">
           <JoinWaitlist>

@@ -94,7 +94,7 @@ const Roadmap = () => {
                     className="text-primary h-5 w-5 flex-shrink-0"
                   />
                 }
-                description="MVP release"
+                description="Beta Launch"
               />
               <RoadmapItem
                 icon={
@@ -273,7 +273,7 @@ const RoadmapItem = ({
           {title}
         </span>
       )}
-      <p className="text-sm">{description}</p>
+      <p className="">{description}</p>
     </div>
   );
 };

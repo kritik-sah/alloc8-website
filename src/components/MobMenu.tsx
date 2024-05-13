@@ -28,9 +28,7 @@ const MobMenu = () => {
           <a href="#features" className="hover:text-primary">
             Features
           </a>
-          <a href="#Experience" className="hover:text-primary">
-            Docs
-          </a>
+
           <a
             href="https://twitter.com/alloc8_xyz"
             target="_blank"
@@ -38,9 +36,6 @@ const MobMenu = () => {
             className="hover:text-primary"
           >
             Twitter
-          </a>
-          <a href="https://calendly.com/ayush-xtra" className="">
-            <Button>Contact us</Button>
           </a>
         </div>
       </div>

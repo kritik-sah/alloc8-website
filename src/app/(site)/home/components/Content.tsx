@@ -45,7 +45,10 @@ const data = [
 const Content = () => {
   const [content, setContent] = useState(0);
   return (
-    <section className="px-2 md:px-4 my-10 lg:my-16 space-y-2 max-w-screen-2xl m-auto">
+    <section
+      id="features"
+      className="px-2 md:px-4 my-10 lg:my-16 space-y-2 max-w-screen-2xl m-auto"
+    >
       <div
         className={`flex flex-col-reverse lg:flex-row p-1 items-center justify-between bg-midnight  rounded-3xl gap-4 `}
       >

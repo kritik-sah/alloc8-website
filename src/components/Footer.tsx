@@ -29,9 +29,9 @@ const Footer = () => {
               <span className="hover:text-primary">Join Waitlist</span>
             </JoinWaitlist> */}
 
-            <a href="#Experience" className="hover:text-primary">
+            {/* <a href="#Experience" className="hover:text-primary">
               Docs
-            </a>
+            </a> */}
             <a
               href="https://twitter.com/alloc8_xyz"
               target="_blank"

@@ -17,8 +17,8 @@ const Hero = () => {
             {/* <strong className="sm:block matelic-text"> Points OS </strong> */}
           </h1>
 
-          <p className="mt-4 text-light/90 ">
-            A revolutionary way to supercharge your points farming DeFi.
+          <p className="text-lg mt-4 text-light/90 ">
+            AI accounts to maximise points & yields. Powered by Safe.
           </p>
 
           <div className="mt-8 flex flex-wrap justify-center gap-4">
